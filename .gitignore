@@ -3,4 +3,4 @@ output/*
 processed/*
 venv/
 __pycache__/
-/idea/
+.idea/
