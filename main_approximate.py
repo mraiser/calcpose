@@ -45,34 +45,35 @@ def optimize(target, keys, modifier, v, step, tolerance, shrinkage):
 
 def iterate(target, values, keys, step):
     n = 0
-    done = {}
+    # done = {}
     while True:
         n += 1
         print("GEN: "+str(n))
         count = 0
         for modifier in values:
-            if modifier not in done:
-                v = values[modifier]
-                generate.modify(modifier, v)
-                data = generate.analyze()
-                delta = calcdelta(target, data, keys)
-                nuv = v + step
+            # if modifier not in done:
+            v = values[modifier]
+            generate.modify(modifier, v)
+            data = generate.analyze()
+            delta = calcdelta(target, data, keys)
+            nuv = v + step
+            generate.modify(modifier, nuv)
+            nudata = generate.analyze()
+            nudelta = calcdelta(target, nudata, keys)
+            if nudelta >= delta:
+                nuv = v - step
                 generate.modify(modifier, nuv)
                 nudata = generate.analyze()
                 nudelta = calcdelta(target, nudata, keys)
                 if nudelta >= delta:
-                    nuv = v - step
-                    generate.modify(modifier, nuv)
-                    nudata = generate.analyze()
-                    nudelta = calcdelta(target, nudata, keys)
-                    if nudelta >= delta:
-                        nuv = v
-                if v != nuv:
-                    count += 1
-                else:
-                    done[modifier] = True
-                generate.modify(modifier, nuv)
-                values[modifier] = nuv
+                    nuv = v
+            if v != nuv:
+                count += 1
+                print(modifier+': '+str(nudelta)+' / '+str(nuv))
+            # else:
+            #     done[modifier] = True
+            generate.modify(modifier, nuv)
+            values[modifier] = nuv
         data = generate.analyze()
         delta = calcdelta(target, data, keys)
         print("Value: "+str(delta))
@@ -85,8 +86,8 @@ modifiers = face_modifiers.list_all()
 
 inputdir = '/home/mraiser/PycharmProjects/calcpose/input/'
 outputdir = '/home/mraiser/PycharmProjects/calcpose/processed/'
-inputfile = 'y2.jpg'
-outputfile = 'y2.csv'
+inputfile = 'x2.jpg'
+outputfile = 'x2.csv'
 
 b = True
 if b:
@@ -99,7 +100,7 @@ values = {}
 b = False
 if b:
     # To start with a previously derived value set
-    with open('processed/y2-9b.json') as json_file:
+    with open('processed/w-2b.json') as json_file:
         values = json.load(json_file)
 
 for modifier in modifiers:
@@ -136,22 +137,23 @@ for i in range(1, 68):
     facekeys.append(' Y_' + str(i))
     facekeys.append(' Z_' + str(i))
 
-b = False
+b = True
 if b:
-    # Attempt #1.
-    # Gets kinda close, maybe?
-    # Starts getting really weird if you run this multiple times progressively against the previous result values
-    step = 0.1
-    for x in range(1,11):
+    # Attempt #3
+    # Reduced step to 0.04. No point in running with a lower step
+    # Removed skipping "done" modifiers
+    # Pretty decent
+    step = 0.04
+    for x in range(1):
         print("STEP "+str(x)+" ("+str(step)+")")
         iterate(target, values, facekeys, step)
-        step *= 0.9
+        step *= 0.5
         print("{")
         for key in values:
             print('"'+key+'": '+str(values[key])+',')
         print("}")
 
-b = True
+b = False
 if b:
     # Attempt #2
     # Really, really, ridiculously slow.
@@ -165,7 +167,7 @@ if b:
     tolerance = 0.01
     shrinkage = 0.9
     step = 0.1
-    for i in range(10):
+    for i in range(2):
         print('GEN '+str(i)+' begin')
         changecount = 0
         for modifier in modifiers:
