@@ -109,7 +109,7 @@ for modifier in modifiers:
         v = values[modifier]
     else:
         values[modifier] = v
-    generate.modify(modifier, v)
+generate.modify("all", values)
 
 generate.scan(inputdir+inputfile)
 target = generate.read_csv(outputdir+outputfile)
