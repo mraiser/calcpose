@@ -1,6 +1,10 @@
 input/*
 output/*
 processed/*
+processed_x/*
 venv/
+venv2/
 __pycache__/
 .idea/
+deprecated/
+/runtime/calcpose/botd.properties

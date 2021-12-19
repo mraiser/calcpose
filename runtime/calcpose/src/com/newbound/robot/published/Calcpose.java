@@ -1,0 +1,1 @@
+package com.newbound.robot.published;public class Calcpose extends com.newbound.robot.MetaBot {	public Calcpose()	{		super();				DB = "calcpose";		ID = "mmxvzr17da51ce4ffq23";	}		public String getServiceName() 	{		return "calcpose";	}}
