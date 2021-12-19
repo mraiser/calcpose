@@ -24,3 +24,5 @@ Installation:
 6. Restart the Newbound software
 7. Launch MakeHuman as a separate process
 
+*Instead of moving the data/calcpose and runtime/calcpose folders you can create symbolic links to them, leaving your git project folder intact for easy updating*
+
