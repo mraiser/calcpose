@@ -12,6 +12,7 @@ Requirements:
 - MediaPipe
 - Imutils
 - Numpy
+- An up-to-date working installation of the Newbound software https://github.com/mraiser/newbound
 
 Installation:
 -
@@ -19,7 +20,7 @@ Installation:
 2. Launch the Newbound software
 3. Toggle ON the "Inactive" apps in the Metabot app and select "Calcpose"
 4. Click the "ACTIVATE" button
-5. Drop the "mhrc/mhrc" folder (the *inner* one) (https://github.com/mraiser/community-plugins-socket/tree/master/cli/mhrc/mhrc) from community-plugins-socket to your Newbound installations "lib_python" folder
+5. Copy the "mhrc/mhrc" folder (the *inner* one) (https://github.com/mraiser/community-plugins-socket/tree/master/cli/mhrc/mhrc) from community-plugins-socket to your Newbound installations "lib_python" folder
 6. Restart the Newbound software
 7. Launch MakeHuman as a separate process
 
