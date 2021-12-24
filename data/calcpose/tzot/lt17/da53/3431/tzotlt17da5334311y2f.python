@@ -1,0 +1,4 @@
+jsc = JsonCall()
+jsc.setFunction("maximizeWindow")
+d = jsc.send().data
+return d

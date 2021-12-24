@@ -1,0 +1,20 @@
+.pad10{
+  margin:10px;
+}
+
+.widebutton{
+  width: 100%;
+  margin-bottom:10px;
+}
+
+.mdl-button--accent.mdl-button--accent.mdl-button--raised, .mdl-button--accent.mdl-button--accent.mdl-button--fab{
+  color: white;
+}
+
+.showontarget{
+  display:none;
+}
+
+.humandisplay{
+  max-width:100%;
+}

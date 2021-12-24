@@ -1,0 +1,5 @@
+jsc = JsonCall()
+jsc.setFunction("getModifierValue")
+jsc.setParam("modifier", modifier)
+d = jsc.send().data
+return d

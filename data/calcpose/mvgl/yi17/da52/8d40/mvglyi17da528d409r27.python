@@ -1,0 +1,6 @@
+jsc = JsonCall()
+jsc.setFunction("applyModifier")
+jsc.setParam("modifier", modifier)
+jsc.setParam("power", amt)
+d = jsc.send().data
+return d

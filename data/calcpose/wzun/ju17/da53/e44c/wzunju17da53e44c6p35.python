@@ -1,0 +1,5 @@
+jsc = JsonCall()
+jsc.setFunction("landmarks")
+d = jsc.send().data
+
+return d

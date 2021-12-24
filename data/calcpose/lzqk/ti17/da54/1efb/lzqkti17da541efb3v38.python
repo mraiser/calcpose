@@ -1,0 +1,4 @@
+jsc = JsonCall()
+jsc.setFunction("resetCamera")
+d = jsc.send().data
+return d

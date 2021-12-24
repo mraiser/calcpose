@@ -1,0 +1,13 @@
+jsc = JsonCall()
+jsc.setFunction("snapshot")
+d = jsc.send().data
+
+img = base64.b64decode(d['data'])
+img = numpy.frombuffer(img, dtype=numpy.uint8)
+img = img.reshape(d['shape'])
+
+cnt = cv2.imencode('.png', img)[1]
+b64 = base64.b64encode(cnt).decode('ascii')
+url = "data:image/png;base64," + b64
+
+return url

@@ -1,0 +1,83 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Calcpose</span>
+    <div class='pad10'>
+      <div class='hideonapproach'>
+        <div class='modgroupselect'></div>
+        <div class='modifierselect'></div>
+        <table cellpadding='0' cellspacing='0' border='0'>
+          <tr>
+            <td>
+                <input type='text' size='1' class='modvalfield' />
+            </td>
+            <td>
+                <input class="modvalslider mdl-slider mdl-js-slider" type="range" min="-100" max="100" value="0" tabindex="0">
+            </td>
+          </tr>
+        </table>
+        <br>
+        <button class="maximizebutton widebutton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          Maximize
+        </button>
+        <br>
+        <button class="resetcambutton widebutton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          Reset Camera
+        </button>
+      </div>
+      <b>Target:</b>
+      <img id='targetimage' width='100%'>
+      <div class='hideonapproach'>
+        <input type="file"
+         id="avatar" name="avatar"
+         xaccept="image/png, image/jpeg"
+         class="targetuploadfile">
+        <div class='showontarget'>
+          <br>
+          <b>Target Rotation:</b> <span class='targetzrot'>0.0</span>
+          <br><br>
+          <button class="fixzrotbutton widebutton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            Optimize Rotation
+          </button>
+		  <br><br>
+          <b>Initial Step:</b>
+          <input type='text' size='1' class='approachstepfield' value='0.32'/>
+          <br><br>
+          <b>Shrinkage:</b>
+          <input type='text' size='1' class='shrinkagefield' value='0.5'/>
+          <br><br>
+          <b>Min Step:</b>
+          <input type='text' size='1' class='minstepfield' value='0.01'/>
+          <br><br>
+          <b>Optimize for target by:</b>
+          <button class="targetbygroup widebutton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            Selected Group
+          </button>
+          <br>
+          <button class="targetbymodifier widebutton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            Selected Modifier
+          </button>
+        </div>
+      </div>
+      <div class='showonapproach'></div>
+    </div>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <img class="humandisplay" />
+      <br>
+      <button class="clearthumbsbutton mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+        <i class="material-icons">delete</i>
+      </button>
+      <button class="playthumbsbutton mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+        <i class="material-icons">play_arrow</i>
+      </button>
+      <button class="addthumbbutton mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+        <i class="material-icons">add</i>
+      </button>
+      <button class="refreshhumanbutton mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+        <i class="material-icons">replay</i>
+      </button>
+      <div class='thumbs'></div>
+    </div>
+  </main>
+</div>
